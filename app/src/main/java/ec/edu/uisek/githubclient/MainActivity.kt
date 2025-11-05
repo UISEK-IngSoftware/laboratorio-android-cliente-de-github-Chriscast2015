@@ -1,5 +1,5 @@
 package ec.edu.uisek.githubclient
-
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +22,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupRecyclerView()
+        binding.newRepoFab.setOnClickListener{
+            displayNewRepoForm()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchRepositories()
     }
 
     private fun setupRecyclerView() {
@@ -48,13 +56,13 @@ class MainActivity : AppCompatActivity() {
                         403 -> "Prohibido"
                         404 -> "No encontrado"
                         else -> "Error ${response.code()}"
-
                     }
+                    showMessage(errorMessage)
                 }
             }
 
             override fun onFailure(call: Call<List<Repo>?>, t: Throwable) {
-                showMessage("No se pudieron cargar los repositorio")
+                showMessage("No se pudieron cargar los repositorios")
             }
         })
     }
@@ -62,4 +70,15 @@ class MainActivity : AppCompatActivity() {
     private fun showMessage (message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
+    private fun displayNewRepoForm() {
+        Intent(this, RepoForm::class.java).apply {
+            startActivity(this)
+
+        }
+
+
+    }
+
+
 }
