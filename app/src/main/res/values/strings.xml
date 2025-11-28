@@ -7,6 +7,10 @@
     <string name="text_lang">Kotlin</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
 
 
 </resources>

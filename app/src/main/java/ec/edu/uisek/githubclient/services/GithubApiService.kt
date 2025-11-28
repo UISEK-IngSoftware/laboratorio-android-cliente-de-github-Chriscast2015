@@ -11,6 +11,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path // nueva línea implementada
 import retrofit2.http.Query
 
+// Esta interfaz define todas las funciones que pueden llamar a la API de GitHub.
 interface GithubApiService {
 
     @GET("user/repos")
@@ -18,6 +19,10 @@ interface GithubApiService {
         @Query("sort") sort: String = "created",
         @Query("direction") direction: String = "desc"
     ): Call<List<Repo>>
+
+    // ---------------------------
+    // CREAR UN REPO NUEVO
+    // ---------------------------
 
     @POST("user/repos")
     fun addRepo(   // NO se cambia tu nombre original
@@ -28,7 +33,7 @@ interface GithubApiService {
     // NUEVAS FUNCIONES IMPLEMENTADAS
     // -----------------------------
 
-    @PATCH("repos/{owner}/{repo}") // nueva línea implementada
+    @PATCH("repos/{owner}/{repo}") // edpoint llama github
     fun updateRepo( // nueva línea implementada
         @Path("owner") owner: String, // nueva línea implementada
         @Path("repo") repoName: String, // nueva línea implementada

@@ -19,11 +19,12 @@
         >
 
         <EditText
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:inputType="text"
             android:id="@+id/repo_name_input"
-            android:hint="@string/repo_name" />
+            android:hint="@string/repo_name"
+            />
 
         <EditText
             android:layout_width="match_parent"

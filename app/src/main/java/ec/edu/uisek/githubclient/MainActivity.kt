@@ -17,7 +17,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var reposAdapter: ReposAdapter
-    private val apiService: GithubApiService = RetrofitClient.gitHubApiService // nueva línea implementada
+    private val apiService: GithubApiService = RetrofitClient.getApiService() // nueva línea implementada
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
